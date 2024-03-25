@@ -1,0 +1,1 @@
+Parallel Gripper for EEZYbotARM MK2 by sthone on Thingiverse: https://www.thingiverse.com/thing:4362304
