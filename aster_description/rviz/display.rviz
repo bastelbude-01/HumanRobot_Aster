@@ -53,7 +53,35 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        backbone_link:
+          Value: true
+        base_holder_link:
+          Value: true
         base_link:
+          Value: true
+        chest_bone_link:
+          Value: true
+        chest_link:
+          Value: true
+        elbow_lh_link:
+          Value: true
+        elbow_rh_link:
+          Value: true
+        head_link:
+          Value: true
+        hip_link:
+          Value: true
+        neck_link:
+          Value: true
+        rh_rotate_link:
+          Value: true
+        sh_lh_lift_link:
+          Value: true
+        sh_rh_lift_link:
+          Value: true
+        shoulder_lh_link:
+          Value: true
+        shoulder_rh_link:
           Value: true
         world:
           Value: true
@@ -61,11 +89,28 @@ Visualization Manager:
       Name: TF
       Show Arrows: true
       Show Axes: true
-      Show Names: true
+      Show Names: false
       Tree:
         world:
           base_link:
-            {}
+            base_holder_link:
+              chest_bone_link:
+                backbone_link:
+                  hip_link:
+                    {}
+                chest_link:
+                  neck_link:
+                    head_link:
+                      {}
+                  shoulder_lh_link:
+                    sh_lh_lift_link:
+                      elbow_lh_link:
+                        {}
+                  shoulder_rh_link:
+                    sh_rh_lift_link:
+                      elbow_rh_link:
+                        rh_rotate_link:
+                          {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -86,7 +131,77 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        backbone_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_holder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chest_bone_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chest_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow_lh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        elbow_rh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hip_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        neck_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rh_rotate_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sh_lh_lift_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sh_rh_lift_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder_lh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder_rh_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -149,25 +264,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 4.414544105529785
+      Distance: 1.1333518028259277
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.08208614587783813
-        Y: 0.12417616695165634
-        Z: 0.234277606010437
+        X: 0.07658170908689499
+        Y: 0.020289625972509384
+        Z: 0.4436097741127014
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.325398325920105
+      Pitch: 0.06539849936962128
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.8604438304901123
+      Yaw: 6.208629131317139
     Saved: ~
 Window Geometry:
   Displays:

@@ -85,10 +85,92 @@
         </visual>
     </link>
     <!-- Right Arm-->
+    <link name="shoulder_rh_link">
+        <visual>
+            <origin xyz="-0.01 -0.018 -0.023" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Rigth_Arm_Shoulder_Connector.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="sh_rh_lift_link">
+        <visual>
+            <origin xyz="0 0.108 -0.6625" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Arm_Shoulder.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="sh_rh_rotate_link">
+        <visual>
+            <origin xyz="0 0.108 0.51" rpy="3.1415 0.0 3.1415"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Arm_Upper.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="elbow_rh_link">
+        <visual>
+            <origin xyz="-0.01 0.1075 -0.498" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Arm_Lower.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="rh_rotate_link" />
 
     <!-- Right Gripper-->
 
     <!-- Left Arm-->
+    <link name="shoulder_lh_link">
+        <visual>
+            <origin xyz="-0.01 0.018 -0.023" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Arm_Shoulder_Connector.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="sh_lh_lift_link">
+        <visual>
+            <origin xyz="0 0 -0.036" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Arm_Shoulder.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="sh_lh_rotate_link">
+        <visual>
+            <origin xyz="0 0 -0.005" rpy="3.1415 0.0 3.1415"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Arm_Upper.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="elbow_lh_link">
+        <visual>
+            <origin xyz="-0.06 0.002 -0.008" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Arm_Lower.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="lh_rotate_link" />
 
     <!-- Left Gripper-->
 
@@ -153,10 +235,88 @@
     </joint>
 
     <!-- Right Arm Joints-->
+    <joint name="joint_3" type="revolute">
+        <parent link="chest_link"/>
+        <child link="shoulder_rh_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0.0 -0.085 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="joint_4" type="revolute">
+        <parent link="shoulder_rh_link"/>
+        <child link="sh_rh_lift_link"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-1.57" upper="0" velocity="50.0" effort="1000.0"/>
+        <origin xyz="-0.008 -0.027 0" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="joint_5" type="revolute">
+        <parent link="sh_rh_lift_link"/>
+        <child link="sh_rh_rotate_link"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+    </joint>
+    
+    <joint name="joint_6" type="revolute">
+        <parent link="sh_rh_rotate_link"/>
+        <child link="elbow_rh_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-1.57" upper="0" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0 0 -0.13" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="joint_7" type="revolute">
+        <parent link="elbow_rh_link"/>
+        <child link="rh_rotate_link"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="0" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0 -0.01 -0.13" rpy="0 0 0"/>
+    </joint>
 
     <!-- Right Gripper Joints-->
 
     <!-- Left Arm Joints-->
+    <joint name="joint_9" type="revolute">
+        <parent link="chest_link"/>
+        <child link="shoulder_lh_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0.0 0.085 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="joint_10" type="revolute">
+        <parent link="shoulder_lh_link"/>
+        <child link="sh_lh_lift_link"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="0" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <origin xyz="-0.008 0.027 0" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="joint_11" type="revolute">
+        <parent link="sh_lh_lift_link"/>
+        <child link="sh_lh_rotate_link"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="joint_12" type="revolute">
+        <parent link="sh_lh_rotate_link"/>
+        <child link="elbow_lh_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-1.57" upper="0" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0 0 -0.13" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="joint_13" type="revolute">
+        <parent link="elbow_lh_link"/>
+        <child link="lh_rotate_link"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-1.57" upper="0" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0 0.015 -0.13" rpy="0 0 0"/>
+    </joint>
 
     <!-- Left Gripper Joints-->
 
