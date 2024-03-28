@@ -293,8 +293,47 @@
 
     <!-- Right Leg-->
 
+    <link name="hip_rh_link">
+        <visual>
+            <origin xyz="0.0023 -0.015 -0.1748" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Leg_Upper.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="knie_rh_link" >
+        <visual>
+            <origin xyz="0.0025 0 -0.1765" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Leg_Lower.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
     <!-- Left Leg-->
 
+    <link name="hip_lh_link">
+        <visual>
+            <origin xyz="0.0023 0.015 -0.1748" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Leg_Upper.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="knie_lh_link" >
+        <visual>
+            <origin xyz="0.0025 0 -0.1765" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Lower_Leg.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
 
 
                     <!-- ######  JOINTS  ######-->
@@ -513,8 +552,40 @@
 
     <!-- Right Leg Joints-->
 
-    <!-- Left Leg Joints-->
+    <joint name="joint_15" type="revolute">
+        <parent link="hip_link"/>
+        <child link="hip_rh_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
+        <origin xyz="-0.007 -0.042 -0.024" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="joint_16" type="revolute">
+        <parent link="hip_rh_link"/>
+        <child link="knie_rh_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0 0 -0.185" rpy="0 0 0"/>
+    </joint>
     
+
+    <!-- Left Leg Joints-->
+
+    <joint name="joint_18" type="revolute">
+        <parent link="hip_link"/>
+        <child link="hip_lh_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
+        <origin xyz="-0.007 0.042 -0.024" rpy="0 0 0"/>
+    </joint>
+    
+    <joint name="joint_19" type="revolute">
+        <parent link="hip_lh_link"/>
+        <child link="knie_lh_link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
+        <origin xyz="0 0 -0.185" rpy="0 0 0"/>
+    </joint>
     
     
 </robot>
