@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+    <!-- <xacro:default_inertial mass="0.3"/> -->
+
     
     <link name="world"/>
 
@@ -40,7 +42,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Chest.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="black"/>       
         </visual>
     </link>
 
@@ -50,7 +52,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Spine.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="white"/>       
         </visual>
     </link>
  
@@ -60,7 +62,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Hips.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="white"/>       
         </visual>
     </link>
 
@@ -85,6 +87,18 @@
             <material name="white"/>       
         </visual>
     </link>
+
+    <link name="face_link">
+        <visual>
+            <origin xyz="0.038 0 -0.0125" rpy="1.57 0 1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/ownStls/Face_OLED_PiCam.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="black"/>       
+        </visual>
+    </link>
+
+
     <!-- Right Arm-->
     <link name="shoulder_rh_link">
         <visual>
@@ -173,7 +187,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="black"/>       
         </visual>
     </link>
 
@@ -183,7 +197,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="black"/>       
         </visual>
     </link>
 
@@ -277,7 +291,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="black"/>       
         </visual>
     </link>
 
@@ -287,7 +301,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="black"/>       
         </visual>
     </link>
 
@@ -319,7 +333,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Right_Leg_Foot.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="black"/>       
         </visual>
     </link>
 
@@ -341,7 +355,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Left_Lower_Leg.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="white"/>       
+            <material name="black"/>       
         </visual>
     </link>
 
@@ -351,7 +365,7 @@
             <geometry>
                 <mesh filename="package://aster_description/meshes/Left_Leg_Foot.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
-            <material name="blue"/>       
+            <material name="black"/>       
         </visual>
     </link>
 
@@ -413,6 +427,13 @@
         <limit lower="-0.5" upper="0.3" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 0.01" rpy="0 0 0"/>
     </joint>
+
+    <joint name="face_joint" type="fixed">
+        <parent link="head_link"/>
+        <child link="face_link"/>
+        <origin xyz="0.0 0.0 0.0375" rpy="0.0 0.0 0.0"/>
+    </joint>
+    
 
     <!-- Right Arm Joints-->
     <joint name="joint_3" type="revolute">
@@ -620,7 +641,7 @@
         <axis xyz="0 1 0"/>
         <limit lower="${-PI/4}" upper="${PI/4}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 -0.18" rpy="0 0 0"/>
-    </joint>
-    
+    </joint>   
+
     
 </robot>

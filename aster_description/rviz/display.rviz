@@ -67,9 +67,23 @@ Visualization Manager:
           Value: true
         elbow_rh_link:
           Value: true
+        face_link:
+          Value: true
+        foot_lh_link:
+          Value: true
+        foot_rh_link:
+          Value: true
         head_link:
           Value: true
+        hip_lh_link:
+          Value: true
         hip_link:
+          Value: true
+        hip_rh_link:
+          Value: true
+        knie_lh_link:
+          Value: true
+        knie_rh_link:
           Value: true
         lh_gripper1_link:
           Value: true
@@ -123,11 +137,19 @@ Visualization Manager:
               chest_bone_link:
                 backbone_link:
                   hip_link:
-                    {}
+                    hip_lh_link:
+                      knie_lh_link:
+                        foot_lh_link:
+                          {}
+                    hip_rh_link:
+                      knie_rh_link:
+                        foot_rh_link:
+                          {}
                 chest_link:
                   neck_link:
                     head_link:
-                      {}
+                      face_link:
+                        {}
                   shoulder_lh_link:
                     sh_lh_lift_link:
                       sh_lh_rotate_link:
@@ -209,12 +231,47 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        face_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        foot_lh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        foot_rh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         head_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        hip_lh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         hip_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hip_rh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        knie_lh_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        knie_rh_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -372,25 +429,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.216965675354004
+      Distance: 1.013868808746338
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.07931002229452133
-        Y: 0.03795522078871727
-        Z: 0.4932384490966797
+        X: 0.11294469237327576
+        Y: 0.022202368825674057
+        Z: 0.4296509623527527
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: -0.036314528435468674
+      Pitch: 0.23368552327156067
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: -0.024142395704984665
+      Yaw: 6.2790398597717285
     Saved: ~
 Window Geometry:
   Displays:

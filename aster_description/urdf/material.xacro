@@ -14,6 +14,10 @@
         <color rgba="0.0 0.0 1.0 0.8"/>
     </material>
 
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1"/>
+    </material>
+
     <!-- Inertial für Stl körper-->
 
     <xacro:macro name="default_inertial" params="mass"> <!-- <xacro:default_inertial mass="1.0"/> -->
