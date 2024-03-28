@@ -1,0 +1,129 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 10 # Hz
+
+    head_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    arm_right_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    arm_left_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+head_controller:
+  ros__parameters:
+    joints:
+      - joint_1
+      - joint_2
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+arm_right_controller:
+  ros__parameters:
+    joints:
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+      - joint_7
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+gripper_rh_controller:
+  ros__parameters:
+    joints:
+      - joint_8
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+arm_left_controller:
+  ros__parameters:
+    joints:
+      - joint_9
+      - joint_10
+      - joint_11
+      - joint_12
+      - joint_13
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+gripper_lh_controller:
+  ros__parameters:
+    joints:
+      - joint_14
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+leg_rh_controller:
+  ros__parameters:
+    joints:
+      - joint_15
+      - joint_16
+      - joint_17
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+leg_lh_controller:
+  ros__parameters:
+    joints:
+      - joint_18
+      - joint_19
+      - joint_20
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true

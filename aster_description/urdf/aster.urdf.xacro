@@ -4,5 +4,7 @@
     <xacro:include filename="material.xacro"/>
 
     <xacro:include filename="aster.xacro"/>
+
+    <xacro:include filename="aster_gazebo.xacro"/>
     
 </robot>

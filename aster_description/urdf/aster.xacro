@@ -2,6 +2,17 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
     <!-- <xacro:default_inertial mass="0.3"/> -->
+    <!-- <xacro:default_inertial_1 mass="0.03"/> -->
+
+    <xacro:macro name="default_transmission" params="number">
+        <transmission name="transmission_${number}">
+            <plugin>transmission_interface/SimpleTransmission</plugin>
+            <actuator name="motor_${number}" role="actuator1"/>
+            <joint name="joint_${number}"    role="joint1">
+                <mechanical_reduction>1.0</mechanical_reduction>
+            </joint>
+        </transmission>
+    </xacro:macro>
 
     
     <link name="world"/>
@@ -14,6 +25,13 @@
             </geometry>        
             <material name="white"/>    
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/ownStls/standBase.stl" scale="0.001 0.001 0.001"/>
+            </geometry>  
+        </collision>
+        <xacro:default_inertial mass="3.3"/>
     </link>
     <!-- Base-->
     <link name="base_holder_link">
@@ -24,6 +42,13 @@
             </geometry>         
             <material name="white"/>    
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 -0.02" rpy="0.0 0.0 ${-PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/subStuff/RohrHalter_v2.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="chest_bone_link">
@@ -34,6 +59,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Spine_Connector.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="chest_link">
@@ -44,6 +76,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 -0.012" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Chest.stl" scale="0.001 0.001 0.001"/>
+            </geometry>  
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="backbone_link">
@@ -54,6 +93,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.003 0.0 -0.085" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Spine.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
  
     <link name="hip_link">
@@ -64,6 +110,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.005 0.0 0.003" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Hips.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
 
@@ -76,6 +129,13 @@
             </geometry>      
             <material name="blue"/>       
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 -0.012" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Head_Neck.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="head_link">
@@ -86,6 +146,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 -0.012" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Head_Back.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="face_link">
@@ -96,6 +163,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="0.038 0 -0.0125" rpy="1.57 0 1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/ownStls/Face_OLED_PiCam.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
 
@@ -108,6 +182,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.01 -0.018 -0.023" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Rigth_Arm_Shoulder_Connector.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="sh_rh_lift_link">
@@ -118,6 +199,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0 0.108 -0.6625" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Arm_Shoulder.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="sh_rh_rotate_link">
@@ -128,6 +216,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0 0.108 0.51" rpy="${PI} 0 ${PI}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Arm_Upper.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="elbow_rh_link">
@@ -138,9 +233,15 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.01 0.1075 -0.498" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Arm_Lower.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
-   
-    <!-- Right Gripper-->
+
     <link name="rh_rotate_link" >
         <visual>
             <origin xyz="-0.02 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
@@ -149,8 +250,17 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.02 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
-
+   
+    <!-- Right Gripper-->
+    
     <link name="rh_rotate_top_link" >
         <visual>
             <origin xyz="-0.004 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
@@ -159,6 +269,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.004 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm_Top.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="rh_gripper1_link" >
@@ -169,6 +286,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.005 0.016 -0.008" rpy="${-PI/2} 0 ${-PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="rh_gripper2_link" >
@@ -179,6 +303,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0.007 -0.016 -0.008" rpy="${-PI/2} 0 ${PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="rh_gripper1_pad_link" >
@@ -189,6 +320,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.004 -0.0015 -0.0017" rpy="0 ${PI/2} 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial_1 mass="0.03"/>
     </link>
 
     <link name="rh_gripper2_pad_link" >
@@ -199,6 +337,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="0.005 0.0015 -0.0017" rpy="${PI} ${PI/2} 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial_1 mass="0.03"/>
     </link>
 
 
@@ -211,6 +356,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.01 0.018 -0.023" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Arm_Shoulder_Connector.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="sh_lh_lift_link">
@@ -221,6 +373,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0 0 -0.036" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Arm_Shoulder.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="sh_lh_rotate_link">
@@ -231,6 +390,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0 0 -0.005" rpy="${PI} 0 ${PI}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Arm_Upper.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="elbow_lh_link">
@@ -241,9 +407,14 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.06 0.002 -0.008" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Arm_Lower.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
-
-    <!-- Left Gripper-->
 
     <link name="lh_rotate_link" >
         <visual>
@@ -253,8 +424,18 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.02 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
+    <!-- Left Gripper-->
+
+    
     <link name="lh_rotate_top_link" >
         <visual>
             <origin xyz="-0.004 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
@@ -263,6 +444,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.004 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm_Top.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="lh_gripper1_link" >
@@ -273,6 +461,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.005 0.016 -0.008" rpy="${-PI/2} 0 ${-PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="lh_gripper2_link" >
@@ -283,6 +478,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0.007 -0.016 -0.008" rpy="${-PI/2} 0 ${PI/2}"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="lh_gripper1_pad_link" >
@@ -293,6 +495,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="-0.004 -0.0015 -0.0017" rpy="0 ${PI/2} 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="lh_gripper2_pad_link" >
@@ -303,6 +512,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="0.005 0.0015 -0.0017" rpy="${PI} ${PI/2} 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <!-- Right Leg-->
@@ -315,6 +531,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0.0023 -0.015 -0.1748" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Leg_Upper.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="knie_rh_link" >
@@ -325,6 +548,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0.0025 0 -0.1765" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Leg_Lower.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="foot_rh_link" >
@@ -335,6 +565,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="0.03 -0.0025 -0.035" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Right_Leg_Foot.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <!-- Left Leg-->
@@ -347,6 +584,13 @@
             </geometry>      
             <material name="white"/>       
         </visual>
+        <collision>
+            <origin xyz="0.0023 0.015 -0.1748" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Leg_Upper.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="knie_lh_link" >
@@ -357,6 +601,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="0.0025 0 -0.1765" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Lower_Leg.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
     <link name="foot_lh_link" >
@@ -367,6 +618,13 @@
             </geometry>      
             <material name="black"/>       
         </visual>
+        <collision>
+            <origin xyz="0.03 0.0025 -0.035" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Left_Leg_Foot.stl" scale="0.001 0.001 0.001"/>
+            </geometry> 
+        </collision>
+        <xacro:default_inertial mass="0.3"/>
     </link>
 
 
@@ -468,7 +726,6 @@
         <origin xyz="0 0 -0.13" rpy="0 0 0"/>
     </joint>
 
-    <!-- Right Gripper Joints-->
     <joint name="joint_7" type="revolute">
         <parent link="elbow_rh_link"/>
         <child link="rh_rotate_link"/>
@@ -477,6 +734,8 @@
         <origin xyz="0 -0.01 -0.13" rpy="0 0 0"/>
     </joint>
 
+    <!-- Right Gripper Joints-->
+    
     <joint name="virtual_7_joint" type="fixed">
         <parent link="rh_rotate_link"/>
         <child link="rh_rotate_top_link"/>
@@ -546,7 +805,6 @@
         <origin xyz="0 0 -0.13" rpy="0 0 0"/>
     </joint>
 
-    <!-- Left Gripper Joints-->
     <joint name="joint_13" type="revolute">
         <parent link="elbow_lh_link"/>
         <child link="lh_rotate_link"/>
@@ -554,7 +812,9 @@
         <limit lower="${-PI/2}" upper="0" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0.015 -0.13" rpy="0 0 0"/>
     </joint>
-
+    
+    <!-- Left Gripper Joints-->
+    
     <joint name="virtual_10_joint" type="fixed">
         <parent link="lh_rotate_link"/>
         <child link="lh_rotate_top_link"/>
@@ -642,6 +902,29 @@
         <limit lower="${-PI/4}" upper="${PI/4}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 -0.18" rpy="0 0 0"/>
     </joint>   
+
+    <!-- Transmissions-->
+
+    <xacro:default_transmission number="1"/>
+    <xacro:default_transmission number="2"/>
+    <xacro:default_transmission number="3"/>
+    <xacro:default_transmission number="4"/>
+    <xacro:default_transmission number="5"/>
+    <xacro:default_transmission number="6"/>
+    <xacro:default_transmission number="7"/>
+    <xacro:default_transmission number="8"/>
+    <xacro:default_transmission number="9"/>
+    <xacro:default_transmission number="10"/>
+    <xacro:default_transmission number="11"/>
+    <xacro:default_transmission number="12"/>
+    <xacro:default_transmission number="13"/>
+    <xacro:default_transmission number="14"/>
+    <xacro:default_transmission number="15"/>
+    <xacro:default_transmission number="16"/>
+    <xacro:default_transmission number="17"/>
+    <xacro:default_transmission number="18"/>
+    <xacro:default_transmission number="19"/>
+    <xacro:default_transmission number="20"/>
 
     
 </robot>

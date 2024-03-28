@@ -28,5 +28,14 @@
                      izz="0.0001" />
         </inertial>
     </xacro:macro>
+
+    <xacro:macro name="default_inertial_1" params="mass"> <!-- <xacro:default_inertial_1 mass="1.0"/> -->
+        <inertial>
+            <mass value="${mass}" />
+            <inertia ixx="0.00001" ixy="0.0" ixz="0.0"
+                     iyy="0.00001" iyz="0.0"
+                     izz="0.00001" />
+        </inertial>
+    </xacro:macro>
     
 </robot>
