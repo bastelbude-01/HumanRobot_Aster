@@ -6,5 +6,7 @@
     <xacro:include filename="aster.xacro"/>
 
     <xacro:include filename="aster_gazebo.xacro"/>
+
+    <xacro:include filename="aster_ros2_control.xacro"/>
     
 </robot>
