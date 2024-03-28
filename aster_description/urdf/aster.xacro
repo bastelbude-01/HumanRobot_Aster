@@ -124,10 +124,48 @@
             <material name="white"/>       
         </visual>
     </link>
-
-    <link name="rh_rotate_link" />
-
+   
     <!-- Right Gripper-->
+    <link name="rh_rotate_link" >
+        <visual>
+            <origin xyz="-0.02 0 -0.03" rpy="-1.57 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="rh_rotate_top_link" >
+        <visual>
+            <origin xyz="-0.004 0 -0.03" rpy="-1.57 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm_Top.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="rh_gripper1_link" >
+        <visual>
+            <origin xyz="-0.005 0.016 -0.008" rpy="-1.57 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="rh_gripper2_link" >
+        <visual>
+            <origin xyz="0.007 -0.016 -0.008" rpy="-1.57 0 1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
 
     <!-- Left Arm-->
     <link name="shoulder_lh_link">
@@ -170,13 +208,57 @@
         </visual>
     </link>
 
-    <link name="lh_rotate_link" />
-
     <!-- Left Gripper-->
+
+    <link name="lh_rotate_link" >
+        <visual>
+            <origin xyz="-0.02 0 -0.03" rpy="-1.57 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="lh_rotate_top_link" >
+        <visual>
+            <origin xyz="-0.004 0 -0.03" rpy="-1.57 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm_Top.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="lh_gripper1_link" >
+        <visual>
+            <origin xyz="-0.005 0.016 -0.008" rpy="-1.57 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="lh_gripper2_link" >
+        <visual>
+            <origin xyz="0.007 -0.016 -0.008" rpy="-1.57 0 1.57"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="white"/>       
+        </visual>
+    </link>
+
+
 
     <!-- Right Leg-->
 
     <!-- Left Leg-->
+
+
+
+                    <!-- ######  JOINTS  ######-->
 
 
     <!-- Base Virtual Joints-->
@@ -267,6 +349,7 @@
         <origin xyz="0 0 -0.13" rpy="0 0 0"/>
     </joint>
 
+    <!-- Right Gripper Joints-->
     <joint name="joint_7" type="revolute">
         <parent link="elbow_rh_link"/>
         <child link="rh_rotate_link"/>
@@ -275,7 +358,29 @@
         <origin xyz="0 -0.01 -0.13" rpy="0 0 0"/>
     </joint>
 
-    <!-- Right Gripper Joints-->
+    <joint name="virtual_7_joint" type="fixed">
+        <parent link="rh_rotate_link"/>
+        <child link="rh_rotate_top_link"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <joint name="joint_8" type="revolute">
+        <parent link="rh_rotate_link"/>
+        <child link="rh_gripper1_link"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.76" upper="0" velocity="50.0" effort="1000.0"/>
+        <origin xyz="-0.015 -0.02 -0.048" rpy="0 0 0"/>
+    </joint>
+    
+    <joint name="joint_8_m" type="revolute">
+        <mimic joint="joint_8" multiplier="-1"/>
+        <parent link="rh_rotate_link"/>
+        <child link="rh_gripper2_link"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="0" upper="0.76" velocity="50.0" effort="1000.0"/>
+        <origin xyz="-0.015 0.02 -0.048" rpy="0 0 0"/>
+    </joint>
+    
 
     <!-- Left Arm Joints-->
     <joint name="joint_9" type="revolute">
@@ -310,6 +415,7 @@
         <origin xyz="0 0 -0.13" rpy="0 0 0"/>
     </joint>
 
+    <!-- Left Gripper Joints-->
     <joint name="joint_13" type="revolute">
         <parent link="elbow_lh_link"/>
         <child link="lh_rotate_link"/>
@@ -318,8 +424,28 @@
         <origin xyz="0 0.015 -0.13" rpy="0 0 0"/>
     </joint>
 
-    <!-- Left Gripper Joints-->
+    <joint name="virtual_10_joint" type="fixed">
+        <parent link="lh_rotate_link"/>
+        <child link="lh_rotate_top_link"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </joint>
 
+    <joint name="joint_14" type="revolute">
+        <parent link="lh_rotate_link"/>
+        <child link="lh_gripper1_link"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.76" upper="0" velocity="50.0" effort="1000.0"/>
+        <origin xyz="-0.015 -0.02 -0.048" rpy="0 0 0"/>
+    </joint>
+    
+    <joint name="joint_14_m" type="revolute">
+        <mimic joint="joint_14" multiplier="-1"/>
+        <parent link="lh_rotate_link"/>
+        <child link="lh_gripper2_link"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="0" upper="0.76" velocity="50.0" effort="1000.0"/>
+        <origin xyz="-0.015 0.02 -0.048" rpy="0 0 0"/>
+    </joint>
     <!-- Right Leg Joints-->
 
     <!-- Left Leg Joints-->
