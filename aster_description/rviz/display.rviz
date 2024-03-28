@@ -71,13 +71,39 @@ Visualization Manager:
           Value: true
         hip_link:
           Value: true
+        lh_gripper1_link:
+          Value: true
+        lh_gripper1_pad_link:
+          Value: true
+        lh_gripper2_link:
+          Value: true
+        lh_gripper2_pad_link:
+          Value: true
+        lh_rotate_link:
+          Value: true
+        lh_rotate_top_link:
+          Value: true
         neck_link:
+          Value: true
+        rh_gripper1_link:
+          Value: true
+        rh_gripper1_pad_link:
+          Value: true
+        rh_gripper2_link:
+          Value: true
+        rh_gripper2_pad_link:
           Value: true
         rh_rotate_link:
           Value: true
+        rh_rotate_top_link:
+          Value: true
         sh_lh_lift_link:
           Value: true
+        sh_lh_rotate_link:
+          Value: true
         sh_rh_lift_link:
+          Value: true
+        sh_rh_rotate_link:
           Value: true
         shoulder_lh_link:
           Value: true
@@ -85,7 +111,7 @@ Visualization Manager:
           Value: true
         world:
           Value: true
-      Marker Scale: 0.5
+      Marker Scale: 0.20000000298023224
       Name: TF
       Show Arrows: true
       Show Axes: true
@@ -104,13 +130,30 @@ Visualization Manager:
                       {}
                   shoulder_lh_link:
                     sh_lh_lift_link:
-                      elbow_lh_link:
-                        {}
+                      sh_lh_rotate_link:
+                        elbow_lh_link:
+                          lh_rotate_link:
+                            lh_gripper1_link:
+                              lh_gripper1_pad_link:
+                                {}
+                            lh_gripper2_link:
+                              lh_gripper2_pad_link:
+                                {}
+                            lh_rotate_top_link:
+                              {}
                   shoulder_rh_link:
                     sh_rh_lift_link:
-                      elbow_rh_link:
-                        rh_rotate_link:
-                          {}
+                      sh_rh_rotate_link:
+                        elbow_rh_link:
+                          rh_rotate_link:
+                            rh_gripper1_link:
+                              rh_gripper1_pad_link:
+                                {}
+                            rh_gripper2_link:
+                              rh_gripper2_pad_link:
+                                {}
+                            rh_rotate_top_link:
+                              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -176,7 +219,57 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        lh_gripper1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lh_gripper1_pad_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lh_gripper2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lh_gripper2_pad_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lh_rotate_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lh_rotate_top_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         neck_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rh_gripper1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rh_gripper1_pad_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rh_gripper2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rh_gripper2_pad_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -186,12 +279,27 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        rh_rotate_top_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         sh_lh_lift_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        sh_lh_rotate_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         sh_rh_lift_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sh_rh_rotate_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -264,25 +372,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.1333518028259277
+      Distance: 1.216965675354004
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.07658170908689499
-        Y: 0.020289625972509384
-        Z: 0.4436097741127014
+        X: 0.07931002229452133
+        Y: 0.03795522078871727
+        Z: 0.4932384490966797
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.06539849936962128
+      Pitch: -0.036314528435468674
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.208629131317139
+      Yaw: -0.024142395704984665
     Saved: ~
 Window Geometry:
   Displays:

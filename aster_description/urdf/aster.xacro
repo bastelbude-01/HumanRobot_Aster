@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+    
     <link name="world"/>
 
     <link name="base_link">
@@ -107,7 +108,7 @@
 
     <link name="sh_rh_rotate_link">
         <visual>
-            <origin xyz="0 0.108 0.51" rpy="3.1415 0.0 3.1415"/>
+            <origin xyz="0 0.108 0.51" rpy="${PI} 0 ${PI}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Right_Arm_Upper.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -128,7 +129,7 @@
     <!-- Right Gripper-->
     <link name="rh_rotate_link" >
         <visual>
-            <origin xyz="-0.02 0 -0.03" rpy="-1.57 0 -1.57"/>
+            <origin xyz="-0.02 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -138,7 +139,7 @@
 
     <link name="rh_rotate_top_link" >
         <visual>
-            <origin xyz="-0.004 0 -0.03" rpy="-1.57 0 -1.57"/>
+            <origin xyz="-0.004 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm_Top.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -148,7 +149,7 @@
 
     <link name="rh_gripper1_link" >
         <visual>
-            <origin xyz="-0.005 0.016 -0.008" rpy="-1.57 0 -1.57"/>
+            <origin xyz="-0.005 0.016 -0.008" rpy="${-PI/2} 0 ${-PI/2}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -158,11 +159,31 @@
 
     <link name="rh_gripper2_link" >
         <visual>
-            <origin xyz="0.007 -0.016 -0.008" rpy="-1.57 0 1.57"/>
+            <origin xyz="0.007 -0.016 -0.008" rpy="${-PI/2} 0 ${PI/2}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
             <material name="white"/>       
+        </visual>
+    </link>
+
+    <link name="rh_gripper1_pad_link" >
+        <visual>
+            <origin xyz="-0.004 -0.0015 -0.0017" rpy="0 ${PI/2} 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="blue"/>       
+        </visual>
+    </link>
+
+    <link name="rh_gripper2_pad_link" >
+        <visual>
+            <origin xyz="0.005 0.0015 -0.0017" rpy="${PI} ${PI/2} 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="blue"/>       
         </visual>
     </link>
 
@@ -190,7 +211,7 @@
 
     <link name="sh_lh_rotate_link">
         <visual>
-            <origin xyz="0 0 -0.005" rpy="3.1415 0.0 3.1415"/>
+            <origin xyz="0 0 -0.005" rpy="${PI} 0 ${PI}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Left_Arm_Upper.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -212,7 +233,7 @@
 
     <link name="lh_rotate_link" >
         <visual>
-            <origin xyz="-0.02 0 -0.03" rpy="-1.57 0 -1.57"/>
+            <origin xyz="-0.02 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -222,7 +243,7 @@
 
     <link name="lh_rotate_top_link" >
         <visual>
-            <origin xyz="-0.004 0 -0.03" rpy="-1.57 0 -1.57"/>
+            <origin xyz="-0.004 0 -0.03" rpy="${-PI/2} 0 ${-PI/2}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Palm_Top.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -232,7 +253,7 @@
 
     <link name="lh_gripper1_link" >
         <visual>
-            <origin xyz="-0.005 0.016 -0.008" rpy="-1.57 0 -1.57"/>
+            <origin xyz="-0.005 0.016 -0.008" rpy="${-PI/2} 0 ${-PI/2}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -242,7 +263,7 @@
 
     <link name="lh_gripper2_link" >
         <visual>
-            <origin xyz="0.007 -0.016 -0.008" rpy="-1.57 0 1.57"/>
+            <origin xyz="0.007 -0.016 -0.008" rpy="${-PI/2} 0 ${PI/2}"/>
             <geometry>
                 <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger.stl" scale="0.001 0.001 0.001"/>
             </geometry>      
@@ -250,7 +271,25 @@
         </visual>
     </link>
 
+    <link name="lh_gripper1_pad_link" >
+        <visual>
+            <origin xyz="-0.004 -0.0015 -0.0017" rpy="0 ${PI/2} 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="blue"/>       
+        </visual>
+    </link>
 
+    <link name="lh_gripper2_pad_link" >
+        <visual>
+            <origin xyz="0.005 0.0015 -0.0017" rpy="${PI} ${PI/2} 0"/>
+            <geometry>
+                <mesh filename="package://aster_description/meshes/Greifer/files/Robotic_Arm_Finger_Pad.stl" scale="0.001 0.001 0.001"/>
+            </geometry>      
+            <material name="blue"/>       
+        </visual>
+    </link>
 
     <!-- Right Leg-->
 
@@ -304,7 +343,7 @@
         <parent link="chest_link"/>
         <child link="neck_link"/>
         <axis xyz="0 0 1 "/>
-        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 0.1" rpy="0 0 0"/>
     </joint>
 
@@ -321,7 +360,7 @@
         <parent link="chest_link"/>
         <child link="shoulder_rh_link"/>
         <axis xyz="0 1 0"/>
-        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0.0 -0.085 0.05" rpy="0 0 0"/>
     </joint>
 
@@ -329,7 +368,7 @@
         <parent link="shoulder_rh_link"/>
         <child link="sh_rh_lift_link"/>
         <axis xyz="1 0 0"/>
-        <limit lower="-1.57" upper="0" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="0" velocity="50.0" effort="1000.0"/>
         <origin xyz="-0.008 -0.027 0" rpy="0 0 0"/>
     </joint>
 
@@ -337,7 +376,7 @@
         <parent link="sh_rh_lift_link"/>
         <child link="sh_rh_rotate_link"/>
         <axis xyz="0 0 1"/>
-        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 -0.04" rpy="0 0 0"/>
     </joint>
     
@@ -345,7 +384,7 @@
         <parent link="sh_rh_rotate_link"/>
         <child link="elbow_rh_link"/>
         <axis xyz="0 1 0"/>
-        <limit lower="-1.57" upper="0" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="0" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 -0.13" rpy="0 0 0"/>
     </joint>
 
@@ -354,7 +393,7 @@
         <parent link="elbow_rh_link"/>
         <child link="rh_rotate_link"/>
         <axis xyz="0 0 1"/>
-        <limit lower="0" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <limit lower="0" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 -0.01 -0.13" rpy="0 0 0"/>
     </joint>
 
@@ -368,7 +407,7 @@
         <parent link="rh_rotate_link"/>
         <child link="rh_gripper1_link"/>
         <axis xyz="1 0 0"/>
-        <limit lower="-0.76" upper="0" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/6}" upper="0" velocity="50.0" effort="1000.0"/>
         <origin xyz="-0.015 -0.02 -0.048" rpy="0 0 0"/>
     </joint>
     
@@ -377,9 +416,21 @@
         <parent link="rh_rotate_link"/>
         <child link="rh_gripper2_link"/>
         <axis xyz="1 0 0"/>
-        <limit lower="0" upper="0.76" velocity="50.0" effort="1000.0"/>
+        <limit lower="0" upper="${PI/6}" velocity="50.0" effort="1000.0"/>
         <origin xyz="-0.015 0.02 -0.048" rpy="0 0 0"/>
     </joint>
+
+    <joint name="virtual_8_joint" type="fixed">
+        <parent link="rh_gripper1_link"/>
+        <child link="rh_gripper1_pad_link"/>
+        <origin xyz="0 0.015 -0.041" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <joint name="virtual_9_joint" type="fixed">
+        <parent link="rh_gripper2_link"/>
+        <child link="rh_gripper2_pad_link"/>
+        <origin xyz="0 -0.015 -0.041" rpy="0.0 0.0 0.0"/>
+    </joint> 
     
 
     <!-- Left Arm Joints-->
@@ -387,7 +438,7 @@
         <parent link="chest_link"/>
         <child link="shoulder_lh_link"/>
         <axis xyz="0 1 0"/>
-        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0.0 0.085 0.05" rpy="0 0 0"/>
     </joint>
 
@@ -395,7 +446,7 @@
         <parent link="shoulder_lh_link"/>
         <child link="sh_lh_lift_link"/>
         <axis xyz="1 0 0"/>
-        <limit lower="0" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <limit lower="0" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
         <origin xyz="-0.008 0.027 0" rpy="0 0 0"/>
     </joint>
 
@@ -403,7 +454,7 @@
         <parent link="sh_lh_lift_link"/>
         <child link="sh_lh_rotate_link"/>
         <axis xyz="0 0 1"/>
-        <limit lower="-1.57" upper="1.57" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 -0.04" rpy="0 0 0"/>
     </joint>
 
@@ -411,7 +462,7 @@
         <parent link="sh_lh_rotate_link"/>
         <child link="elbow_lh_link"/>
         <axis xyz="0 1 0"/>
-        <limit lower="-1.57" upper="0" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="0" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 -0.13" rpy="0 0 0"/>
     </joint>
 
@@ -420,7 +471,7 @@
         <parent link="elbow_lh_link"/>
         <child link="lh_rotate_link"/>
         <axis xyz="0 0 1"/>
-        <limit lower="-1.57" upper="0" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/2}" upper="0" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0.015 -0.13" rpy="0 0 0"/>
     </joint>
 
@@ -434,7 +485,7 @@
         <parent link="lh_rotate_link"/>
         <child link="lh_gripper1_link"/>
         <axis xyz="1 0 0"/>
-        <limit lower="-0.76" upper="0" velocity="50.0" effort="1000.0"/>
+        <limit lower="${-PI/6}" upper="0" velocity="50.0" effort="1000.0"/>
         <origin xyz="-0.015 -0.02 -0.048" rpy="0 0 0"/>
     </joint>
     
@@ -443,9 +494,23 @@
         <parent link="lh_rotate_link"/>
         <child link="lh_gripper2_link"/>
         <axis xyz="1 0 0"/>
-        <limit lower="0" upper="0.76" velocity="50.0" effort="1000.0"/>
+        <limit lower="0" upper="${PI/6}" velocity="50.0" effort="1000.0"/>
         <origin xyz="-0.015 0.02 -0.048" rpy="0 0 0"/>
     </joint>
+
+    <joint name="virtual_11_joint" type="fixed">
+        <parent link="lh_gripper1_link"/>
+        <child link="lh_gripper1_pad_link"/>
+        <origin xyz="0 0.015 -0.041" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <joint name="virtual_12_joint" type="fixed">
+        <parent link="lh_gripper2_link"/>
+        <child link="lh_gripper2_pad_link"/>
+        <origin xyz="0 -0.015 -0.041" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+
     <!-- Right Leg Joints-->
 
     <!-- Left Leg Joints-->
