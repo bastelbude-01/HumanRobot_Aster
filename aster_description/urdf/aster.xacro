@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+    
     <!-- <xacro:default_inertial mass="0.3"/> -->
     <!-- <xacro:default_inertial_1 mass="0.03"/> -->
 
@@ -750,7 +751,7 @@
         <origin xyz="-0.015 -0.02 -0.048" rpy="0 0 0"/>
     </joint>
     
-    <joint name="joint_8_m" type="revolute">
+    <joint name="joint_21" type="revolute">
         <mimic joint="joint_8" multiplier="-1"/>
         <parent link="rh_rotate_link"/>
         <child link="rh_gripper2_link"/>
@@ -829,7 +830,7 @@
         <origin xyz="-0.015 -0.02 -0.048" rpy="0 0 0"/>
     </joint>
     
-    <joint name="joint_14_m" type="revolute">
+    <joint name="joint_22" type="revolute">
         <mimic joint="joint_14" multiplier="-1"/>
         <parent link="lh_rotate_link"/>
         <child link="lh_gripper2_link"/>

@@ -8,10 +8,19 @@ controller_manager:
     arm_right_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
+    gripper_rh_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
     arm_left_controller:
       type: joint_trajectory_controller/JointTrajectoryController
-    
-    gripper_controller:
+
+    gripper_lh_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    leg_rh_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    leg_lh_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
     joint_state_broadcaster:
@@ -54,7 +63,7 @@ gripper_rh_controller:
   ros__parameters:
     joints:
       - joint_8
-      
+
     command_interfaces:
       - position
 
@@ -86,7 +95,7 @@ gripper_lh_controller:
   ros__parameters:
     joints:
       - joint_14
-      
+
     command_interfaces:
       - position
 
@@ -102,7 +111,7 @@ leg_rh_controller:
       - joint_15
       - joint_16
       - joint_17
-      
+
     command_interfaces:
       - position
 
@@ -118,7 +127,7 @@ leg_lh_controller:
       - joint_18
       - joint_19
       - joint_20
-      
+
     command_interfaces:
       - position
 
