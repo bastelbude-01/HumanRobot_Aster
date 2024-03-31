@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="aster">
 
-    <xacro:include filename="material.xacro"/>
+    <xacro:include filename="$(find aster_description)/urdf/material.xacro"/>
 
-    <xacro:include filename="aster.xacro"/>
+    <xacro:include filename="$(find aster_description)/urdf/aster.xacro"/>
+<!-- 
+    <xacro:include filename="$(find aster_description)/urdf/aster_gazebo.xacro"/>
 
-    <xacro:include filename="aster_gazebo.xacro"/>
-
-    <xacro:include filename="aster_ros2_control.xacro"/>
-    
+    <xacro:include filename="$(find aster_description)/urdf/aster_ros2_control.xacro"/>
+-->
 </robot>

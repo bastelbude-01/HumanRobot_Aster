@@ -633,37 +633,37 @@
 
 
     <!-- Base Virtual Joints-->
-    <joint name="virtual_1_joint" type="fixed">
+    <joint name="world_to_base" type="fixed">
         <parent link="world"/>
         <child link="base_link"/>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
     </joint>
 
-    <joint name="virtual_2_joint" type="fixed">
+    <joint name="base_to_holder" type="fixed">
         <parent link="base_link"/>
         <child link="base_holder_link"/>
         <origin xyz="0.0 0.0 0.62" rpy="0.0 0.0 0.0"/>
     </joint>
 
-    <joint name="virtual_3_joint" type="fixed">
+    <joint name="baseholder_to_chestbone" type="fixed">
         <parent link="base_holder_link"/>
         <child link="chest_bone_link"/>
         <origin xyz="0.042 0.0 0.015" rpy="0.0 0.0 0.0"/>
     </joint>
 
-    <joint name="virtual_4_joint" type="fixed">
+    <joint name="chestbone_to_chest" type="fixed">
         <parent link="chest_bone_link"/>
         <child link="chest_link"/>
         <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
     </joint>
 
-    <joint name="virtual_5_joint" type="fixed">
+    <joint name="chestbone_to_backbone" type="fixed">
         <parent link="chest_bone_link"/>
         <child link="backbone_link"/>
         <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
     </joint>
 
-    <joint name="virtual_6_joint" type="fixed">
+    <joint name="backbone_to_hip" type="fixed">
         <parent link="backbone_link"/>
         <child link="hip_link"/>
         <origin xyz="0 0 -0.2" rpy="0.0 0.0 0.0"/>
@@ -737,7 +737,7 @@
 
     <!-- Right Gripper Joints-->
     
-    <joint name="virtual_7_joint" type="fixed">
+    <joint name="gripper_body_rh" type="fixed">
         <parent link="rh_rotate_link"/>
         <child link="rh_rotate_top_link"/>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -760,13 +760,13 @@
         <origin xyz="-0.015 0.02 -0.048" rpy="0 0 0"/>
     </joint>
 
-    <joint name="virtual_8_joint" type="fixed">
+    <joint name="pad_rh_r" type="fixed">
         <parent link="rh_gripper1_link"/>
         <child link="rh_gripper1_pad_link"/>
         <origin xyz="0 0.015 -0.041" rpy="0.0 0.0 0.0"/>
     </joint>
 
-    <joint name="virtual_9_joint" type="fixed">
+    <joint name="pad_rh_l" type="fixed">
         <parent link="rh_gripper2_link"/>
         <child link="rh_gripper2_pad_link"/>
         <origin xyz="0 -0.015 -0.041" rpy="0.0 0.0 0.0"/>
@@ -816,7 +816,7 @@
     
     <!-- Left Gripper Joints-->
     
-    <joint name="virtual_10_joint" type="fixed">
+    <joint name="gripper_body_lh" type="fixed">
         <parent link="lh_rotate_link"/>
         <child link="lh_rotate_top_link"/>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -839,13 +839,13 @@
         <origin xyz="-0.015 0.02 -0.048" rpy="0 0 0"/>
     </joint>
 
-    <joint name="virtual_11_joint" type="fixed">
+    <joint name="pad_lh_r" type="fixed">
         <parent link="lh_gripper1_link"/>
         <child link="lh_gripper1_pad_link"/>
         <origin xyz="0 0.015 -0.041" rpy="0.0 0.0 0.0"/>
     </joint>
 
-    <joint name="virtual_12_joint" type="fixed">
+    <joint name="pad_lh_l" type="fixed">
         <parent link="lh_gripper2_link"/>
         <child link="lh_gripper2_pad_link"/>
         <origin xyz="0 -0.015 -0.041" rpy="0.0 0.0 0.0"/>
