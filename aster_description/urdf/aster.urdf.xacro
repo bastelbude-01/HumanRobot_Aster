@@ -4,9 +4,9 @@
     <xacro:include filename="$(find aster_description)/urdf/material.xacro"/>
 
     <xacro:include filename="$(find aster_description)/urdf/aster.xacro"/>
-<!-- 
-    <xacro:include filename="$(find aster_description)/urdf/aster_gazebo.xacro"/>
+ 
+    <xacro:include filename="$(find aster_description)/urdf/gazebo.xacro"/>
 
-    <xacro:include filename="$(find aster_description)/urdf/aster_ros2_control.xacro"/>
--->
+    <xacro:include filename="$(find aster_description)/urdf/ros2_control.xacro"/>
+
 </robot>

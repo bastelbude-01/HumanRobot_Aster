@@ -9,7 +9,7 @@
         <transmission name="transmission_${number}">
             <plugin>transmission_interface/SimpleTransmission</plugin>
             <actuator name="motor_${number}" role="actuator1"/>
-            <joint name="joint_${number}"    role="joint1">
+            <joint name="joint_${number}" role="joint1">
                 <mechanical_reduction>1.0</mechanical_reduction>
             </joint>
         </transmission>
@@ -260,7 +260,7 @@
         <xacro:default_inertial mass="0.3"/>
     </link>
    
-    <!-- Right Gripper-->
+    <!-- Right Gripper
     
     <link name="rh_rotate_top_link" >
         <visual>
@@ -345,10 +345,10 @@
             </geometry>
         </collision>
         <xacro:default_inertial_1 mass="0.03"/>
-    </link>
+    </link> -->
 
 
-    <!-- Left Arm-->
+    <!-- Left Arm
     <link name="shoulder_lh_link">
         <visual>
             <origin xyz="-0.01 0.018 -0.023" rpy="0.0 0.0 0.0"/>
@@ -432,9 +432,9 @@
             </geometry>
         </collision>
         <xacro:default_inertial mass="0.3"/>
-    </link>
+    </link> -->
 
-    <!-- Left Gripper-->
+    <!-- Left Gripper
 
     
     <link name="lh_rotate_top_link" >
@@ -520,9 +520,9 @@
             </geometry>
         </collision>
         <xacro:default_inertial mass="0.3"/>
-    </link>
+    </link> -->
 
-    <!-- Right Leg-->
+    <!-- Right Leg
 
     <link name="hip_rh_link">
         <visual>
@@ -573,9 +573,9 @@
             </geometry>
         </collision>
         <xacro:default_inertial mass="0.3"/>
-    </link>
+    </link> -->
 
-    <!-- Left Leg-->
+    <!-- Left Leg
 
     <link name="hip_lh_link">
         <visual>
@@ -626,7 +626,7 @@
             </geometry> 
         </collision>
         <xacro:default_inertial mass="0.3"/>
-    </link>
+    </link> -->
 
 
                     <!-- ######  JOINTS  ######-->
@@ -735,7 +735,7 @@
         <origin xyz="0 -0.01 -0.13" rpy="0 0 0"/>
     </joint>
 
-    <!-- Right Gripper Joints-->
+    <!-- Right Gripper Joints
     
     <joint name="gripper_body_rh" type="fixed">
         <parent link="rh_rotate_link"/>
@@ -770,10 +770,10 @@
         <parent link="rh_gripper2_link"/>
         <child link="rh_gripper2_pad_link"/>
         <origin xyz="0 -0.015 -0.041" rpy="0.0 0.0 0.0"/>
-    </joint> 
+    </joint>  -->
     
 
-    <!-- Left Arm Joints-->
+    <!-- Left Arm Joints
     <joint name="joint_9" type="revolute">
         <parent link="chest_link"/>
         <child link="shoulder_lh_link"/>
@@ -812,9 +812,9 @@
         <axis xyz="0 0 1"/>
         <limit lower="${-PI/2}" upper="0" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0.015 -0.13" rpy="0 0 0"/>
-    </joint>
+    </joint> -->
     
-    <!-- Left Gripper Joints-->
+    <!-- Left Gripper Joints
     
     <joint name="gripper_body_lh" type="fixed">
         <parent link="lh_rotate_link"/>
@@ -849,10 +849,10 @@
         <parent link="lh_gripper2_link"/>
         <child link="lh_gripper2_pad_link"/>
         <origin xyz="0 -0.015 -0.041" rpy="0.0 0.0 0.0"/>
-    </joint>
+    </joint> -->
 
 
-    <!-- Right Leg Joints-->
+    <!-- Right Leg Joints
 
     <joint name="joint_15" type="revolute">
         <parent link="hip_link"/>
@@ -876,9 +876,9 @@
         <axis xyz="0 1 0"/>
         <limit lower="${-PI/4}" upper="${PI/4}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 -0.18" rpy="0 0 0"/>
-    </joint>
+    </joint> -->
 
-    <!-- Left Leg Joints-->
+    <!-- Left Leg Joints
 
     <joint name="joint_18" type="revolute">
         <parent link="hip_link"/>
@@ -902,30 +902,36 @@
         <axis xyz="0 1 0"/>
         <limit lower="${-PI/4}" upper="${PI/4}" velocity="50.0" effort="1000.0"/>
         <origin xyz="0 0 -0.18" rpy="0 0 0"/>
-    </joint>   
+    </joint>    -->
 
     <!-- Transmissions-->
 
-    <xacro:default_transmission number="1"/>
+    <xacro:default_transmission number="1"/> <!-- Head-->
     <xacro:default_transmission number="2"/>
-    <xacro:default_transmission number="3"/>
+
+    <xacro:default_transmission number="3"/> <!-- Right Arm-->
     <xacro:default_transmission number="4"/>
     <xacro:default_transmission number="5"/>
     <xacro:default_transmission number="6"/>
     <xacro:default_transmission number="7"/>
-    <xacro:default_transmission number="8"/>
-    <xacro:default_transmission number="9"/>
+
+<!--    <xacro:default_transmission number="8"/>  Right Gripper -->
+     
+<!--    <xacro:default_transmission number="9"/>  Left Arm
     <xacro:default_transmission number="10"/>
     <xacro:default_transmission number="11"/>
     <xacro:default_transmission number="12"/>
-    <xacro:default_transmission number="13"/>
-    <xacro:default_transmission number="14"/>
-    <xacro:default_transmission number="15"/>
+    <xacro:default_transmission number="13"/> -->
+
+<!--    <xacro:default_transmission number="14"/>  Left Gripper -->
+
+<!--    <xacro:default_transmission number="15"/>  Right Leg
     <xacro:default_transmission number="16"/>
-    <xacro:default_transmission number="17"/>
-    <xacro:default_transmission number="18"/>
+    <xacro:default_transmission number="17"/> -->
+
+<!--    <xacro:default_transmission number="18"/>  Left Leg 
     <xacro:default_transmission number="19"/>
-    <xacro:default_transmission number="20"/>
+    <xacro:default_transmission number="20"/> -->
 
     
 </robot>
