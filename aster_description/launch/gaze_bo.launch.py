@@ -23,8 +23,9 @@ def generate_launch_description():
 
     env_var = SetEnvironmentVariable('GAZEBO_MODEL_PATH', aster_description_share)
 
-    robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]),
-                                       value_type=str)
+    #robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]),
+    #                                   value_type=str)
+    robot_description = ParameterValue(Command(["xacro ", LaunchConfiguration("model")]))
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
