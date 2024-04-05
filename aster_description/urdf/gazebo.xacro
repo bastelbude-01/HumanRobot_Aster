@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="aster">
-<!--    
+
     <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
             <robot_param>robot_description</robot_param>
@@ -8,7 +8,7 @@
             <parameters>$(find aster_controller)/config/aster_controllers.yaml</parameters>
         </plugin>
     </gazebo>
- -->
+
     <gazebo reference="base_link">
         <material>Gazebo/Black</material>
     </gazebo>
@@ -22,7 +22,7 @@
     </gazebo>
 
     <gazebo reference="chest_link">
-        <material>Gazebo/White</material>
+        <material>Gazebo/Black</material>
     </gazebo>
 
     <gazebo reference="backbone_link">
@@ -42,6 +42,110 @@
     </gazebo>
 
     <gazebo reference="face_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="shoulder_rh_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="sh_rh_lift_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="sh_rh_rotate_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="elbow_rh_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="rh_rotate_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="rh_rotate_top_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="rh_gripper1_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="rh_gripper2_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="rh_gripper1_pad_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="rh_gripper2_pad_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="shoulder_lh_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="sh_lh_lift_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="sh_lh_rotate_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="elbow_lh_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="lh_rotate_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="lh_rotate_top_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="lh_gripper1_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="lh_gripper2_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="lh_gripper1_pad_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="lh_gripper2_pad_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="hip_rh_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="knie_rh_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="foot_rh_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="hip_lh_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="knie_lh_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="foot_lh_link">
         <material>Gazebo/Black</material>
     </gazebo>
     

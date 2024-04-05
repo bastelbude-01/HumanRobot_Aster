@@ -6,6 +6,8 @@
     <xacro:include filename="$(find aster_description)/urdf/aster.xacro"/>    
      
     <xacro:include filename="$(find aster_description)/urdf/gazebo.xacro"/>
+
+    <xacro:include filename="$(find aster_description)/urdf/camera.xacro"/>
 <!-- 
     <xacro:include filename="$(find aster_description)/urdf/ros2_control.xacro"/>
 -->
