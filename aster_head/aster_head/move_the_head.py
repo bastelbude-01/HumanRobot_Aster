@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int32
+from adafruit_servokit import ServoKit
 
 
 class HeadSubscriber(Node):
@@ -9,9 +10,11 @@ class HeadSubscriber(Node):
         super().__init__("move_the_head")
         self.sub_ = self.create_subscription(Int32, "move_head", self.msgCallback, 10)
         self.sub_
+        self.kit = ServoKit(channels=16)
 
     def msgCallback(self, msg):
         self.get_logger().info("I heard: %s" % msg.data)
+        self.kit.servo[1].angle = msg.data
 
 
 def main():
