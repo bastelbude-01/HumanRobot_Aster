@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rca">
-    
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="aster">
+<!--    
     <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
             <robot_param>robot_description</robot_param>
@@ -8,7 +8,7 @@
             <parameters>$(find aster_controller)/config/aster_controllers.yaml</parameters>
         </plugin>
     </gazebo>
-<!-- 
+ -->
     <gazebo reference="base_link">
         <material>Gazebo/Black</material>
     </gazebo>
@@ -44,5 +44,5 @@
     <gazebo reference="face_link">
         <material>Gazebo/Black</material>
     </gazebo>
-    -->
+    
 </robot>

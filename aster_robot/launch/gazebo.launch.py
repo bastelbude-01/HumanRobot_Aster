@@ -11,12 +11,13 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    aster_description_dir = get_package_share_directory('aster_description')
-    aster_description_share = os.path.join(get_package_prefix('aster_description'), 'share')
+    
+    aster_description_dir = get_package_share_directory('aster_robot')
+    aster_description_share = os.path.join(get_package_prefix('aster_robot'), 'share')
     gazebo_ros_dir = get_package_share_directory('gazebo_ros')
 
     model_arg = DeclareLaunchArgument(name='model', default_value=os.path.join(
-                                        aster_description_dir, 'urdf', 'aster.urdf.xacro'
+                                        aster_description_dir, 'urdf', 'robot.urdf.xacro'
                                         ),
                                       description='Absolute path to robot urdf file'
     )
@@ -25,7 +26,6 @@ def generate_launch_description():
 
     robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]),
                                        value_type=str)
-    #robot_description = ParameterValue(Command(["xacro ", LaunchConfiguration("model")]))
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',

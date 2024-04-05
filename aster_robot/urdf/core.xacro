@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="aster">
+
+    <xacro:property name="PI" value="3.14159265359" />
+    <xacro:property name="effort" value="30.0" />
+    <xacro:property name="velocity" value="10.0" />
+    
+    <xacro:macro name="default_transmission" params="number">
+        <transmission name="transmission_${number}">
+            <plugin>transmission_interface/SimpleTransmission</plugin>
+            <actuator name="motor_${number}" role="actuator1" />
+            <joint name="joint_${number}" role="joint1">
+                <mechanical_reduction>1.0</mechanical_reduction>
+            </joint>
+        </transmission>
+    </xacro:macro>
+
+
+    <link name="world" />
+    
+    <!-- Base-->
+
+    <link name="base_link"/>
+    
+    <link name="base_holder_link"/>
+
+    <link name="chest_bone_link"/>
+
+    <link name="chest_link"/>
+    
+     <!-- Head-->
+     <link name="neck_link"/>
+
+    <link name="head_link"/>
+
+    <!-- Right Arm-->
+    <link name="shoulder_rh_link"/>
+
+    <link name="sh_rh_lift_link"/>
+
+    <joint name="world_to_base" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <joint name="base_to_holder" type="fixed">
+        <parent link="base_link" />
+        <child link="base_holder_link" />
+        <origin xyz="0.0 0.0 0.62" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <joint name="baseholder_to_chestbone" type="fixed">
+        <parent link="base_holder_link" />
+        <child link="chest_bone_link" />
+        <origin xyz="0.042 0.0 0.015" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <joint name="chestbone_to_chest" type="fixed">
+        <parent link="chest_bone_link" />
+        <child link="chest_link" />
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <joint name="joint_1" type="revolute">
+        <parent link="chest_link" />
+        <child link="neck_link" />
+        <axis xyz="0 0 1 " />
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0" />
+        <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <joint name="joint_2" type="revolute">
+        <parent link="neck_link" />
+        <child link="head_link" />
+        <axis xyz="0 1 0" />
+        <limit lower="-0.5" upper="0.3" velocity="50.0" effort="1000.0" />
+        <origin xyz="0.0 0.0 0.01" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <joint name="joint_3" type="revolute">
+        <parent link="chest_link" />
+        <child link="shoulder_rh_link" />
+        <axis xyz="0 1 0" />
+        <limit lower="${-PI/2}" upper="${PI/2}" velocity="50.0" effort="1000.0" />
+        <origin xyz="0.0 -0.085 0.05" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <joint name="joint_4" type="revolute">
+        <parent link="shoulder_rh_link" />
+        <child link="sh_rh_lift_link" />
+        <axis xyz="1 0 0" />
+        <limit lower="${-PI/2}" upper="0" velocity="50.0" effort="1000.0" />
+        <origin xyz="-0.008 -0.027 0" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <xacro:default_transmission number="1" /> 
+    <xacro:default_transmission number="2" />
+
+    <xacro:default_transmission number="3" />
+    <xacro:default_transmission number="4" />
+
+</robot>
