@@ -29,24 +29,24 @@ class EyeSubscriber(Node):
         
 
     def make_font(self, name, size):
-        font_path = str(Path(__file__).resolve().parent.joinpath('fonts', name))
-        return ImageFont.truetype(font_path, size)
+        self.font_path = str(Path(__file__).resolve().parent.joinpath('fonts', name))
+        return ImageFont.truetype(self.font_path, size)
 
     def augen(self):
-        self.font = self.make_font("fontawesome-webfont.ttf", self.device.height - 10)
+        font = self.make_font("fontawesome-webfont.ttf", self.device.height - 10)
 
         with canvas(self.device) as draw:
-            left, top, right, bottom = draw.textbbox((0, 0), self.auge, self.font)
+            left, top, right, bottom = draw.textbbox((0, 0), self.auge, font)
             w, h = right - left, bottom - top
             left = (self.device.width - w) / 2
             top = (self.device.height - h) / 2
-            draw.text((left, top), text=self.auge, font=self.font, fill="white")
+            draw.text((left, top), text=self.auge, font=font, fill="white")
         with canvas(self.device2) as draw:
-            left, top, right, bottom = draw.textbbox((0, 0), self.auge, self.font)
+            left, top, right, bottom = draw.textbbox((0, 0), self.auge, font)
             w, h = right - left, bottom - top
             left = (self.device.width - w) / 2
             top = (self.device.height - h) / 2
-            draw.text((left, top), text=self.auge, font=self.font, fill="white")
+            draw.text((left, top), text=self.auge, font=font, fill="white")
 
     def msgCallback(self, msg):
         self.get_logger().info("I heard: %s" % msg.data)
