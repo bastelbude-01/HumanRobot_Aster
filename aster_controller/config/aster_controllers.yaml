@@ -8,6 +8,21 @@ controller_manager:
 
     right_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
+
+    right_gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_leg_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_leg_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
       
 
     joint_state_broadcaster:
@@ -36,6 +51,84 @@ right_arm_controller:
       - joint_5
       - joint_6
       - joint_7
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+right_gripper_controller:
+  ros__parameters:
+    joints:
+      - joint_8
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+left_arm_controller:
+  ros__parameters:
+    joints:
+      - joint_9
+      - joint_10
+      - joint_11
+      - joint_12
+      - joint_13
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+left_gripper_controller:
+  ros__parameters:
+    joints:
+      - joint_14
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+right_leg_controller:
+  ros__parameters:
+    joints:
+      - joint_15
+      - joint_16
+      - joint_17
+      
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+left_leg_controller:
+  ros__parameters:
+    joints:
+      - joint_18
+      - joint_19
+      - joint_20
       
     command_interfaces:
       - position
