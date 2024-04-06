@@ -13,7 +13,7 @@ class HeadSubscriber(Node):
         self.kit = ServoKit(channels=16)
 
     def msgCallback(self, msg):
-        self.get_logger().info("I heard: %s" % msg.data)
+        # self.get_logger().info("I heard: %s" % msg.data)
         self.kit.servo[1].angle = msg.data
 
 
