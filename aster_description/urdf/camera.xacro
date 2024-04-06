@@ -58,7 +58,7 @@
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
     </joint>
 
-
+<!--
     <gazebo reference="camera">
         <material>Gazebo/Orange</material>
 
@@ -83,7 +83,7 @@
             </plugin>
         </sensor> 
     </gazebo>
-
+-->
     <gazebo reference="camera_linse">
         <material>Gazebo/Black</material>
     </gazebo>
