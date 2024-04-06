@@ -17,14 +17,14 @@ def generate_launch_description():
     is_sim = LaunchConfiguration("is_sim")
 
     moveit_config = (
-        MoveItConfigsBuilder("rca", package_name="rca_moveit")
+        MoveItConfigsBuilder("aster", package_name="aster_moveit")
         .robot_description(file_path=os.path.join(
-            get_package_share_directory("rca_description"),
+            get_package_share_directory("aster_description"),
             "urdf",
-            "rca.urdf.xacro"
+            "aster.urdf.xacro"
         )
         )
-        .robot_description_semantic(file_path="config/rca.srdf")
+        .robot_description_semantic(file_path="config/aster.srdf")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
         .to_moveit_configs()
     )
@@ -39,7 +39,7 @@ def generate_launch_description():
     )
 
     rviz_config = os.path.join(get_package_share_directory(
-        "rca_moveit"), "config", "moveit.rviz")
+        "aster_moveit"), "config", "moveit.rviz")
 
     rviz_node = Node(
         package="rviz2",
