@@ -11,6 +11,7 @@ class HeadSubscriber(Node):
         self.sub_ = self.create_subscription(Int32, "move_head", self.msgCallback, 10)
         self.sub_
         self.kit = ServoKit(channels=16)
+        #self.kit.servo[0].set_pulse_width_range(1000,2000)
 
     def msgCallback(self, msg):
         # self.get_logger().info("I heard: %s" % msg.data)
