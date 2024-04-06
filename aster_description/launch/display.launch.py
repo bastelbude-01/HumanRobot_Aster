@@ -39,6 +39,7 @@ def generate_launch_description():
         arguments=['-d', os.path.join(aster_description_dir, 'rviz', 'display.rviz')],
     )
 
+    
     return LaunchDescription([
         model_arg,
         joint_state_publisher_gui_node,
