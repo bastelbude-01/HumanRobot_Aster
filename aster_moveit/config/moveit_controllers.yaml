@@ -1,0 +1,74 @@
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - head_controller
+    - right_arm_controller
+    - right_gripper_controller
+    - left_arm_controller
+    - left_gripper_controller
+    - right_leg_controller
+    - left_leg_controller
+
+  head_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint_1
+      - joint_2
+
+  right_arm_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+      - joint_7
+
+  right_gripper_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint_8
+
+  left_arm_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint_9
+      - joint_10
+      - joint_11
+      - joint_12
+      - joint_13
+
+  left_gripper_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint_14
+
+  right_leg_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint_15
+      - joint_16
+      - joint_17
+      
+  left_leg_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - joint_18
+      - joint_19
+      - joint_20
+  
